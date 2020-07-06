@@ -1,4 +1,4 @@
-# [![vile][]]
+# ![vile][]
 
 [![GitHub CI][github-ci-badge]][github-ci]
 [![Build][build-badge]][build]
