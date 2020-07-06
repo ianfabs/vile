@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 410 210">
   <path fill="#0367d8" d="M 31.4 36.5 L 40 36.5 L 57.7 -5.6 L 49.6 -5.6 L 35.8 28.2 L 35.6 28.2 L 22.7 -5.6 L 14.2 -5.6 Z"/>
-    <text transform="matrix(1,0,0,1,-0.2,0.8)" font-size="85.7" textLength="78.8" fill="rgb(255, 255, 255)" x="57.1" y="36.2">
+    <text transform="matrix(1,0,0,1,-0.2,0.8)" font-size="85.7" textLength="78.8" fill="rgb(0, 0, 0)" x="57.1" y="36.2">
         ile
     </text>
 </svg>
