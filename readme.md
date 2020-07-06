@@ -13,7 +13,7 @@
 
 ## Why the fork!?
 
-Well, I got kinda peeved with the typings not being accurate anymore, so I said "fork it" it, I'll fix it myself and publish it on npm or something. Everything is the same except for one of the following changes, which will occur in [types/index.d.ts](./blob/main/types/index.d.ts):
+Well, I got kinda peeved with the typings not being accurate anymore, so I said "fork it" it, I'll fix it myself and publish it on npm or something. Everything is the same except for one of the following changes, which will occur in [types/index.d.ts](./types/index.d.ts):
 
 <small>**Note**: The interface is simplified for brevity in these examples. The only change so far is the `result` field. </small>
 
