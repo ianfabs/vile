@@ -1,4 +1,4 @@
-# [![vfile][]][unified]
+# [![vile][]]
 
 [![GitHub CI][github-ci-badge]][github-ci]
 [![Build][build-badge]][build]
@@ -9,7 +9,85 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-**vfile** is a virtual file format part of the [unified][] [collective][].
+**vile** is my fork of the [vfile][] project, which is part of the [unified][] [collective][].
+
+## Why the fork!?
+
+Well, I got kinda peeved with the typings not being accurate anymore, so I said "fork it" it, I'll fix it myself and publish it on npm or something. Everything is the same except for one of the following changes, which will occur in [types/index.d.ts](./blob/main/types/index.d.ts):
+
+<small>**Note**: The interface is simplified for brevity in these examples. The only change so far is the `result` field. </small>
+
+### Option One
+
+This is the simplist solution, but with the least benefit as well.
+```ts
+interface VFile {
+    
+    <F extends VFile>(input?: VFileContents | F | VFileOptions): F
+    /**
+     * List of file-paths the file moved between.
+     */
+    history: string[]
+    /**
+     * Place to store custom information.
+     * It's OK to store custom data directly on the `vfile`, moving it to `data` gives a little more privacy.
+     */
+    data: unknown
+    /**
+     * Result from either `.process` or `.processSync`, can be anything
+     */
+    result: any
+}
+```
+
+### Option Two
+
+Option two is slightly more robust, but still poses limitations on plugin authors.
+```ts
+interface VFile<T> {
+    <F extends VFile>(input?: VFileContents | F | VFileOptions): F
+    /**
+     * List of file-paths the file moved between.
+     */
+    history: string[]
+    /**
+     * Place to store custom information.
+     * It's OK to store custom data directly on the `vfile`, moving it to `data` gives a little more privacy.
+     */
+    data: unknown
+    /**
+     * Result from either `.process` or `.processSync`, can be anything
+     */
+    result: T
+}
+```
+
+### Option Three
+
+This is the most robust solution, but also the most verbose.
+```ts
+interface VFile {
+    <F extends VFile>(input?: VFileContents | F | VFileOptions): F
+    /**
+     * List of file-paths the file moved between.
+     */
+    history: string[]
+    /**
+     * Place to store custom information.
+     * It's OK to store custom data directly on the `vfile`, moving it to `data` gives a little more privacy.
+     */
+    data: unknown
+}
+
+interface CustomVFile<T> extends VFile{
+  /**
+   * Result from either `.process` or `.processSync`, can be anything
+   */
+  result: T
+}
+```
+
+These options are not final, and are subject to change.
 
 ## Intro
 
@@ -406,7 +484,7 @@ for contributing commits since!
 
 [author]: https://wooorm.com
 
-[vfile]: https://raw.githubusercontent.com/vfile/vfile/7e1e6a6/logo.svg?sanitize=true
+[vile]: https://raw.githubusercontent.com/ianfabs/vile/main/logo.svg
 
 [unified]: https://github.com/unifiedjs/unified
 
@@ -423,6 +501,8 @@ for contributing commits since!
 [reporter]: https://github.com/vfile/vfile-reporter
 
 [vmessage]: https://github.com/vfile/vfile-message
+
+[vfile]: https://github.com/vfile/vfile
 
 [messages]: #vfilemessages
 
